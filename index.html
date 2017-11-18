@@ -213,13 +213,14 @@
                     }
                 }
             }
-            document.body.getElementsByClassName("equationsWrapper")[0].innerHTML = "<h5>Equations Containing Symbols (Sorted by number of matching symbols):"
-            for (foundEquation of addedToBody) {
-
-                document.body.getElementsByClassName("equationsWrapper")[0].innerHTML += "<h4>``" + foundEquation.eq
-                    .markup +
-                    "``</h4><br>"
+            document.body.getElementsByClassName("equationsWrapper")[0].innerHTML = "<h>Equations Containing Symbols (Sorted by number of matching symbols):"
+                    
+            for(equ of addedToBody){
+                document.body.getElementsByClassName("equationsWrapper")[0].innerHTML += "<h3>``" + equ.eq.markup + "``</h3>"
             }
+
+                
+            
             MathJax.Hub.Typeset();
         }
     </script>
