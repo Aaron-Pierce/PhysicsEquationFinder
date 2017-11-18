@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Physics Equation Finder</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=AM_CHTML"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" href="./css/index.css">
+
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <h3>Enter the symbols(no numbers) you want an equation for, separated by commas</h3>
+    <input placeholder="Symbols" onkeyup="replaceChars(this)" id="inputBox" type="text" class="validate" style="width: 50%">
+    <div class="resultWrapper">
+        <h1>
+            <span id="results"></span>
+        </h1>
+        <button id="submit" onclick="submitSymbols()" class="btn">Submit</button>
+    </div>
+    <div class="equationsWrapper">
+
+    </div>
+
+    <script>
+        let symbols = [{
+                proc: ['not', 'naut', 'naght', 'naut'],
+                replace: "naught"
+            },
+            {
+                proc: ["delta"],
+                replace: "Δ",
+                id: '1'
+            },
+            {
+                proc: [" not", " naught", " nought", "not", "naught", "nought", " initial", "initial"],
+                replace: "₀",
+                id: '2'
+
+            },
+            {
+                proc: [" final", "final"],
+                replace: "_f",
+                id: '3'
+            },
+            {
+                proc: [" bar", "bar"],
+                replace: "_(avg)",
+                notification: "Your browser does not support the bar symbol, so it will be replaced with subscript avg",
+                id: '4'
+            },
+            {
+                proc: [" final", "final"],
+                replace: "_f"
+            },
+            {
+                proc: ["squared"],
+                replace: ["^2"]
+            },
+        ]
+
+        let symbolAlts = [{
+                proc: "f",
+                replace: "final"
+            },
+            {
+                proc: "finalinal",
+                replace: "final"
+            },
+            {
+                proc: "o",
+                replace: "naught"
+            },
+            {
+                proc: 'avg',
+                replace: 'bar'
+            },
+            {
+                proc: '^2',
+                replace: 'squared'
+            }
+
+        ]
+
+
+        let equations = [{
+                //markup: ["`V_(avg) = (delta x)/t`"],
+                markup: ["`V_(avg) = (Delta x)/(t)` "],
+                symbols: ['vbar', 'deltax', 't']
+            },
+            {
+                markup: ["`V_f = V_o + at`"],
+                symbols: ["vfinal", 'vnaught', 'a', 't']
+            },
+            {
+                markup: "`V_f ^ 2 = V_o ^ 2 + 2a Delta x`",
+                symbols: ["vfinalsquared", 'vnaughtsquared', 'a', 'delta x']
+            },
+            {
+                markup: "`V_(avg) = (V_o + V_f)/2`",
+                symbols: ["vbar", "vnaught", "vfinal"]
+            },
+            {
+                markup: "`a = (V_f - V_o)/t`",
+                symbols: ["a", "vfinal", "vnaught", "t"]
+            },
+            {
+                markup: "`Delta x = V_ot + 1/2 at^2`",
+                symbols: ["deltax", "vnaught", "a", "t", "tsquared"]
+            },
+            {
+                markup: "`Delta x = vt`",
+                symbols: ["deltax", "v", "t"]
+            },
+            {
+                markup: "`V = omegar`",
+                symbols: ["v", "omega", "r"]
+            },
+            {
+                markup: "`Delta s = omega rt`",
+                symbols: ['deltas', 'omega', 'r', 't']
+            },
+            {
+                markup: "`Delta theta = (Delta s) / r`",
+                symbols: ['deltatheta', 'deltas', 'r']
+            },
+            {
+                markup: "`omega = (Delta theta)/t`",
+                symbols: ['omega', 'deltatheta', 't']
+            }
+        ]
+
+
+        function replaceChars(text) {
+            let replaced = text.value;
+            for (symbol of symbols) {
+                for (proc of symbol.proc) {
+
+                    let searchMask = proc;
+                    let regEx = new RegExp(searchMask, "ig");
+                    let replaceMask = symbol.replace;
+                    replaced = replaced.replace(regEx, replaceMask);
+                }
+            }
+            document.getElementById("results").innerHTML = "`" + replaced + "`";
+            MathJax.Hub.Typeset()
+        }
+
+        let submitSymbols = function () {
+
+            let symbols = document.getElementById("inputBox").value.replace(/\s/g, '').split(",");
+            for (i in symbols) {
+                for (altSymbol of symbolAlts) {
+                    if (symbols[i].toLowerCase().indexOf(altSymbol.proc.toLowerCase()) !== -1) {
+                        symbols[i] = symbols[i].toLowerCase().replace(altSymbol.proc, altSymbol.replace)
+                    }
+                }
+            }
+
+            document.body.getElementsByClassName("equationsWrapper")[0].innerHTML = ""
+
+            console.log(symbols);
+
+            let found = [];
+            for (equation of equations) {
+                let curScore = 0;
+                for (let i = 0; i < symbols.length; i++) {
+                    if (equation.symbols.indexOf(symbols[i].toLowerCase()) !== -1) {
+                        curScore++;
+                    }
+                }
+                if (curScore > 0) {
+                    found.push({
+                        eq: equation,
+                        score: curScore
+                    });
+                }
+            }
+            let addedToBody = [];
+            let loops = 0;
+            for (foundEquation of found) {
+                //console.log(addedToBody.indexOf(foundEquation))
+                if (addedToBody.indexOf(foundEquation) === -1) {
+                    loops++;
+                    addedToBody.push(foundEquation);
+                }
+            }
+
+            console.log(addedToBody)
+            for (let j = 0; j < addedToBody.length; j++) {
+                for (let k = 0; k < addedToBody.length - 1; k++) {
+                    if (addedToBody[k].score < addedToBody[k + 1].score) {
+                        let temp = addedToBody[k];
+                        addedToBody[k] = addedToBody[k + 1];
+                        addedToBody[k + 1] = temp;
+                    }
+                }
+            }
+            document.body.getElementsByClassName("equationsWrapper")[0].innerHTML = "<h5>Equations Containing Symbols (Sorted by number of matching symbols):"
+            for (foundEquation of addedToBody) {
+
+                document.body.getElementsByClassName("equationsWrapper")[0].innerHTML += "<h4>``" + foundEquation.eq
+                    .markup +
+                    "``</h4><br>"
+            }
+            MathJax.Hub.Typeset();
+        }
+    </script>
+</body>
+
+</html>
