@@ -43,5 +43,9 @@ let equations = [{
 {
     markup: "`omega = (Delta theta)/t`",
     symbols: ['omega', 'deltatheta', 't']
+},
+{
+    markup: "`(-V_(o x) +- sqrt(V_(o x)^2 + 2aDeltax))/2`",
+    symbols: ['vnaught', 'a', 'deltax']
 }
 ]
