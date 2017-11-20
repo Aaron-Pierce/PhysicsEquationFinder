@@ -53,7 +53,14 @@ let symbolAlts = [{
 {
     proc: '^2',
     replace: 'squared'
+},
+{
+    proc: "∆",
+    replace: 'delta'
+},
+{
+    proc: "ω",
+    replace: "omega"
 }
-
 ]
 
