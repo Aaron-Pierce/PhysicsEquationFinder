@@ -47,5 +47,9 @@ let equations = [{
 {
     markup: "`(-V_(o x) +- sqrt(V_(o x)^2 + 2aDeltax))/2`",
     symbols: ['vnaught', 'a', 'deltax']
+},
+{
+    markup: "`F_g = G(M_1M_2)/r^2`",
+    symbols: ["finalg", "g", "m1", "m2", "r"] //[0] is finalg because f is parsed to final
 }
 ]

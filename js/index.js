@@ -14,7 +14,9 @@ function replaceChars(text) { //text is the html object of the input box - not t
   MathJax.Hub.Typeset(); //Format math found in dom
 }
 
-let submitSymbols = function() {
+
+
+let submitSymbols = function() { //called on <input> keydown
 
     //Step 1: Parse symbols
 
@@ -33,6 +35,8 @@ let submitSymbols = function() {
       }
     }
   }
+
+  console.log(symbols);
 
   document.body.getElementsByClassName("equationsWrapper")[0].innerHTML = ""; //clear the results box, prepping for finding equations
 
