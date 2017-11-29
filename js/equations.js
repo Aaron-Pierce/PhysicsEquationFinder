@@ -10,7 +10,7 @@ let equations = [{
 },
 
 {
-    markup: ["`Delta y = V_( o y) - 1/2 g t^2`"],
+    markup: ["`Delta y = V_( o y)t - 1/2 g t^2`"],
     symbols: ["deltay", "vnaught", 'g', "t", "y", "vnaughty"]
 },
 {
