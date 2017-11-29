@@ -5,12 +5,25 @@ let equations = [{
     symbols: ['vbar', 'deltax', 't']
 },
 {
+    markup: ["`V_(fy) = V_(oy) - g t`"],
+    symbols: ["vfinal", "vnaught", 'g', "t"]
+},
+
+{
+    markup: ["`Delta y = V_( o y) - 1/2 g t^2`"],
+    symbols: ["deltay", "vnaught", 'g', "t"]
+},
+{
     markup: ["`V_f = V_o + at`"],
     symbols: ["vfinal", 'vnaught', 'a', 't']
 },
 {
     markup: "`V_f ^ 2 = V_o ^ 2 + 2a Delta x`",
     symbols: ["vfinalsquared", 'vnaughtsquared', 'a', 'delta x', 'vfinal', 'vnaught']
+},
+{
+    markup: "`V_(f y) ^ 2 = V_(o y) ^ 2 - 2g Delta y`",
+    symbols: ["vfinalsquared", 'vnaughtsquared', 'g', 'delta y', 'vfinal', 'vnaught']
 },
 {
     markup: "`V_(avg) = (V_o + V_f)/2`",
