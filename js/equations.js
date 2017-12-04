@@ -64,5 +64,13 @@ let equations = [{
 {
     markup: "`F_g = G(M_1M_2)/r^2`",
     symbols: ["finalg", "g", "m1", "m2", "r"] //[0] is finalg because f is parsed to final
+},
+{
+    markup: '`% "Diff" = abs([(a-b)/((a+b)/2)]100)`',
+    symbols: ["%errnaughtr", "percentdifinalference", "percentdifinalference", "%errnaughtr", "percent", "%", "percentdifinalf"]
+},
+{
+    markup: "`W = mg`",
+    symbols: ["w", "weight", "m", "g"]
 }
 ]
