@@ -67,7 +67,7 @@ let equations = [{
 },
 {
     markup: '`% "Diff" = abs([(a-b)/((a+b)/2)]100)`',
-    symbols: ["%errnaughtr", "percentdifinalference", "percentdifinalference", "%errnaughtr", "percent", "%", "percentdifinalf"]
+    symbols: ["%errnaughtr", "percentdifinalference", "percentdifinalference", "%errnaughtr", "percent", "%", "percentdifinalf", "%difinalference", "%difinalf"]
 },
 {
     markup: "`W = mg`",
