@@ -72,5 +72,9 @@ let equations = [{
 {
     markup: "`W = mg`",
     symbols: ["w", "weight", "m", "g"]
+},
+{
+    markup: "`V_l = sqrt(2gDeltay)`",
+    symbols: ["Vl", "vlaunch", "g", "deltay", "va", "vapex", "launch", "'"]
 }
 ]
