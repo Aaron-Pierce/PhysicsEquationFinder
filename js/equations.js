@@ -75,6 +75,10 @@ let equations = [{
 },
 {
     markup: "`V_l = sqrt(2gDeltay)`",
-    symbols: ["Vl", "vlaunch", "g", "deltay", "va", "vapex", "launch", "'"]
+    symbols: ["vl", "vlaunch", "g", "deltay", "va", "vapex", "launch", "'"]
+},
+{
+    markup: '`V_(apex) = V_l - g((tau)/2)`',
+    symbols: ["vapex", "vl", "g", "tau", "t"]
 }
 ]
