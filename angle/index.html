@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Angle Measurer Thingy</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+    <script>
+
+        let paused = false;
+
+        window.addEventListener("deviceorientation", handleOrientation, true);
+
+        function handleOrientation(event) {
+            // those angles are in degrees
+            if(!paused){
+
+                var alpha = event.alpha;
+            var beta = event.beta;
+            var gamma = event.gamma;
+
+            var betaR = 180 / 3.14 * (beta / 180 * Math.PI);
+            var gammaR = gamma / 180 * Math.PI;
+            var spinR = Math.atan2(Math.cos(betaR) * Math.sin(gammaR), Math.sin(betaR));
+
+
+
+            document.body.innerHTML = "<h1>BetaR : " + betaR + ",<br> GammaR: " + gammaR + ",<br> Spin: " + spinR
+            }
+        }
+
+        let event = ("touchstart" in window) ? "ontouchstart" : "click"
+
+        document.addEventListener(event, function(){
+            paused = !paused;
+        });
+
+    </script>
+</body>
+
+</html>
