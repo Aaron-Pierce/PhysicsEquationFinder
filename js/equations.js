@@ -80,5 +80,9 @@ let equations = [{
 {
     markup: '`V_(apex) = V_l - g((tau)/2)`',
     symbols: ["vapex", "vl", "g", "tau", "t"]
+},
+{
+    markup: "`h = Delta x tan theta`",
+    symbols: ["h", "deltax", "tan", "theta", "tantheta"]
 }
-]
+];
