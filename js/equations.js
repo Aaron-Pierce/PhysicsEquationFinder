@@ -84,5 +84,9 @@ let equations = [{
 {
     markup: "`h = Delta x tan theta`",
     symbols: ["h", "deltax", "tan", "theta", "tantheta"]
+},
+{
+    markup: "`t = (V_(o y) +- sqrt(V_(o y)^2 -2gDeltay))/g`",
+    symbols: ["t", "vnaughty", "deltay", "g", "bluequad"]
 }
 ];
