@@ -88,5 +88,17 @@ let equations = [{
 {
     markup: "`t = (V_(o y) +- sqrt(V_(o y)^2 -2gDeltay))/g`",
     symbols: ["t", "vnaughty", "deltay", "g", "bluequad"]
-}
+},
+{
+    markup: "`x(t) = 1/6jt^3 + 1/2a_ot^2 + v_ot+x_o`",
+    symbols: ["j", "t", "anaught", "vnaught", "xnaught"]
+},
+{
+    markup: "`v(t) = 1/2jt^2 + a_ot + v_o`",
+    symbols: ["j", "anaught", "vnaught", "t", "pink", "secondpink"]
+},
+{
+    markup: "`a(t) = j_ot+a_o`",
+    symbols: ["jnaught", "anaught", "t", "pink", "thirdpink"]
+},
 ];
