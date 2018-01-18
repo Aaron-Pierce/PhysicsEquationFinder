@@ -86,8 +86,11 @@ let submitSymbols = function() { //called on <input> keydown
 
     //Step 5: Add findings to body and format equations
   for (equ of addedToBody) { //for every equation in our sorted array
+
+    console.log(equ.eq.color)
+
     document.body.getElementsByClassName("equationsWrapper")[0].innerHTML +=
-      "<h3>``" + equ.eq.markup + "``</h3>"; //add it to the dom. surrounded by "``" so MathJax will parse it as MathML
+      "<h3 style=background-color:" + equ.eq.color + ">``" + equ.eq.markup + "``</h3>"; //add it to the dom. surrounded by "``" so MathJax will parse it as MathML. The style is the color object for background highlighting. worst case we set the background-color to undefined which doesnt really matter
   }
 
   MathJax.Hub.Typeset(); //parse all equations in the dom

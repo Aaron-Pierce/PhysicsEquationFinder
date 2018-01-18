@@ -6,24 +6,29 @@ let equations = [{
 },
 {
     markup: ["`V_(fy) = V_(oy) - g t`"],
-    symbols: ["vfinal", "vnaught", 'g', "t", "y", "vnaughty", "vfinaly"]
+    symbols: ["vfinal", "vnaught", 'g', "t", "y", "vnaughty", "vfinaly"],
+    color: "blue"
 },
 
 {
     markup: ["`Delta y = V_( o y)t - 1/2 g t^2`"],
-    symbols: ["deltay", "vnaught", 'g', "t", "y", "vnaughty"]
+    symbols: ["deltay", "vnaught", 'g', "t", "y", "vnaughty"],
+    color: "blue"
 },
 {
     markup: ["`V_f = V_o + at`"],
-    symbols: ["vfinal", 'vnaught', 'a', 't']
+    symbols: ["vfinal", 'vnaught', 'a', 't'],
+    color: "orange"
 },
 {
     markup: "`V_f ^ 2 = V_o ^ 2 + 2a Delta x`",
-    symbols: ["vfinalsquared", 'vnaughtsquared', 'a', 'delta x', 'vfinal', 'vnaught']
+    symbols: ["vfinalsquared", 'vnaughtsquared', 'a', 'delta x', 'vfinal', 'vnaught'],
+    color: "orange"
 },
 {
     markup: "`V_(f y) ^ 2 = V_(o y) ^ 2 - 2g Delta y`",
-    symbols: ["vfinalsquared", 'vnaughtsquared', 'g', 'delta y', 'vfinal', 'vnaught', 'y', "vfinaly", "vnaughty", "deltay"]
+    symbols: ["vfinalsquared", 'vnaughtsquared', 'g', 'delta y', 'vfinal', 'vnaught', 'y', "vfinaly", "vnaughty", "deltay"],
+    color: "blue"
 },
 {
     markup: "`V_(avg) = (V_o + V_f)/2`",
@@ -35,7 +40,8 @@ let equations = [{
 },
 {
     markup: "`Delta x = V_ot + 1/2 at^2`",
-    symbols: ["deltax", "vnaught", "a", "t", "tsquared"]
+    symbols: ["deltax", "vnaught", "a", "t", "tsquared"],
+    color: "orange"
 },
 {
     markup: "`Delta x = vt`",
@@ -87,18 +93,26 @@ let equations = [{
 },
 {
     markup: "`t = (V_(o y) +- sqrt(V_(o y)^2 -2gDeltay))/g`",
-    symbols: ["t", "vnaughty", "deltay", "g", "bluequad"]
+    symbols: ["t", "vnaughty", "deltay", "g", "bluequad"],
+    color: "pink"
 },
 {
     markup: "`x(t) = 1/6jt^3 + 1/2a_ot^2 + v_ot+x_o`",
-    symbols: ["j", "t", "anaught", "vnaught", "xnaught"]
+    symbols: ["j", "t", "anaught", "vnaught", "xnaught"],
+    color: "pink"
 },
 {
     markup: "`v(t) = 1/2jt^2 + a_ot + v_o`",
-    symbols: ["j", "anaught", "vnaught", "t", "pink", "secondpink"]
+    symbols: ["j", "anaught", "vnaught", "t", "pink", "secondpink"],
+    color: "pink"
 },
 {
     markup: "`a(t) = j_ot+a_o`",
-    symbols: ["jnaught", "anaught", "t", "pink", "thirdpink"]
+    symbols: ["jnaught", "anaught", "t", "pink", "thirdpink"],
+    color: "pink"
 },
+{
+    markup: "`p = mv`",
+    symbols: ["p", "lilp", "m", "v"]
+}
 ];
