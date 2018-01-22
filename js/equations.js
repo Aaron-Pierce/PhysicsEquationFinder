@@ -113,5 +113,13 @@ let equations = [{
 {
     markup: "`p = mv`",
     symbols: ["p", "lilp", "m", "v"]
+},
+{
+    markup: "`Delta x = (V_ocostheta)t`",
+    symbols: ["deltax", "vnaught", "cos", "costheta", "cnaughts", "cnaughtstheta", "t", "2a", "type2a", "type2prnaughtjectilemnaughtinaughtn"]
+},
+{
+    markup: "`t= (2V_osintheta)/g`",
+    symbols: ["vnaught", "sintheta", "sin", "theta", "g", "2a", "type2a", "type2prnaughtjectilemnaughtinaughtn"]
 }
 ];
