@@ -121,5 +121,9 @@ let equations = [{
 {
     markup: "`t= (2V_osintheta)/g`",
     symbols: ["vnaught", "sintheta", "sin", "theta", "g", "2a", "type2a", "type2prnaughtjectilemnaughtinaughtn"]
+},
+{
+    markup: "`Deltax_R = (V_o^2sin(2theta))/g`",
+    symbols: ["range", "rangeeq", "rangeq", "type2a", "2a", "deltax", "deltaxr", "deltaxrange", "deltaxsubr", "vnaught", "vnaughtsquared", "sin", "sintheta", "sin2theta", "twotheta", "g"]
 }
 ];
