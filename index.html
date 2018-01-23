@@ -31,18 +31,30 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <h3>Enter the symbols(no numbers) you want an equation for, separated by commas</h3>
-    <input placeholder="Symbols" onkeyup="replaceChars(this)" id="inputBox" type="text" class="validate" style="width: 50%">
+    <form style="width: 50%" onsubmit="event.preventDefault();">
+        <input placeholder="Symbols" id="inputBox" type="text" class="validate" style="width: 50%">
+    </form>
     <div class="resultWrapper">
         <h1>
             <span id="results"></span>
         </h1>
         <div class="switch">
-                <label>
-                  Strict Mode
-                  <input type="checkbox" checked id="strictSwitch">
-                  <span class="lever"></span>
-                </label>
-              </div><br>
+            <label>
+                Strict Mode
+                <input type="checkbox" checked id="strictSwitch" class="optionToggle">
+                <span class="lever"></span>
+            </label>
+        </div>
+        <br>
+
+        <div class="switch">
+            <label>
+                Color Mode
+                <input type="checkbox" checked id="colorSwitch" class="optionToggle">
+                <span class="lever"></span>
+            </label>
+        </div>
+        <br>
         <button id="submit" onclick="submitSymbols()" class="btn">Submit</button>
     </div>
     <span class="messageWrapper"></span>

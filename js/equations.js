@@ -45,7 +45,8 @@ let equations = [{
 },
 {
     markup: "`Delta x = vt`",
-    symbols: ["deltax", "v", "t"]
+    symbols: ["deltax", "v", "t", "red"],
+    color: "red"
 },
 {
     markup: "`V = omegar`",
@@ -93,7 +94,8 @@ let equations = [{
 },
 {
     markup: "`t = (V_(o y) +- sqrt(V_(o y)^2 -2gDeltay))/g`",
-    symbols: ["t", "vnaughty", "deltay", "g", "bluequad"],
+    symbols: ["t", "vnaughty", "deltay", "g", "bluequad, blue"],
+    color: "blue"
 },
 {
     markup: "`x(t) = 1/6jt^3 + 1/2a_ot^2 + v_ot+x_o`",
