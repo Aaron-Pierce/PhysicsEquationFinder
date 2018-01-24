@@ -127,5 +127,9 @@ let equations = [{
 {
     markup: "`Deltax_R = (V_o^2sin(2theta))/g`",
     symbols: ["range", "rangeeq", "rangeq", "type2a", "2a", "deltax", "deltaxr", "deltaxrange", "deltaxsubr", "vnaught", "vnaughtsquared", "sin", "sintheta", "sin2theta", "twotheta", "g"]
+},
+{
+    markup: "<img src='./flowchart.jpg'>",
+    symbols: ["finallnaughtw", "finallnaughtwchart"]
 }
 ];

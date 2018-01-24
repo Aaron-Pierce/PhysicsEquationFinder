@@ -39,6 +39,8 @@ let submitSymbols = function() {
     }
   }
 
+  console.log(symbols)
+
 
   document.body.getElementsByClassName("equationsWrapper")[0].innerHTML = ""; //clear the results box, prepping for finding equations
 
