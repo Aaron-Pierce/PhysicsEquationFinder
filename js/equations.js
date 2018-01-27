@@ -46,7 +46,7 @@ let equations = [{
 {
     markup: "`Delta x = vt`",
     symbols: ["deltax", "v", "t", "red"],
-    color: "red"
+    color: "#ef5350"
 },
 {
     markup: "`V = omegar`",

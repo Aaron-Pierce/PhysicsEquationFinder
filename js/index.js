@@ -108,7 +108,7 @@ let submitSymbols = function() {
     }
 
     document.body.getElementsByClassName("equationsWrapper")[0].innerHTML +=
-      "<h3 style=background-color:" +
+      "<h3 style=color:" +
       equ.eq.color +
       ">``" +
       equ.eq.markup +
