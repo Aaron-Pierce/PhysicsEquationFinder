@@ -131,5 +131,13 @@ let equations = [{
 {
     markup: "<img src='./flowchart.jpg'>",
     symbols: ["finallnaughtw", "finallnaughtwchart"]
+},
+{
+    markup: "`M_1V_(o1) + M_2V_(o2) = M_1V_(f1)+M_2V_(o2)`",
+    symbols: ["m1", "m2", "m", "vnaught1", "vnaught2", "vnaught", "cnaughtllisnaughtsn", "cnaughtllisnaughtsns", "elastic", "elasticcnaughtllisnaughtsn", "cnaughtllison"]
+},
+{
+    markup: "`M_1V_(o1) + M_2V_(o2) = (M_1+M_2)V_f`",
+    symbols: ["m1", "m2", "v1", "v2", "vfinal", "cnaughtllison", "cnaughtllisons", "inelasticcnaughtllision", "inelastic"]
 }
 ];
