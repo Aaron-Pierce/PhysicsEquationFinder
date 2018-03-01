@@ -139,5 +139,17 @@ let equations = [{
 {
     markup: "`M_1V_(o1) + M_2V_(o2) = (M_1+M_2)V_f`",
     symbols: ["m1", "m2", "v1", "v2", "vfinal", "cnaughtllison", "cnaughtllisons", "inelasticcnaughtllision", "inelastic"]
+},
+{
+    markup: "`F_s = -kx`",
+    symbols: ["finals", "k", "x", "hnaughtokes", "hnaughtoke", "hnaughtokeslaw", "hnaughtoke'slaw", "hnaughtok", "hnaughtoks"]
+},
+{
+    markup: "`F = (Delta rho) / t`",
+    symbols: ["lilp", "mnaughtmentum", "p", "deltap", "t", "final", "finalnaughtrce"]
+},
+{
+    markup: "`F = ma`",
+    symbols: ["final", "m", "a", "finalnaughtrce"]
 }
 ];
