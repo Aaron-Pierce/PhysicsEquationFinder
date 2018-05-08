@@ -220,11 +220,16 @@ let equations = [{
 {
     markup: "`vec(F)  = vec(Deltap)/t`",
     symbols: ["final", "finalnaughtrce", "deltap", "t", "impulse", "impulseequatinaughtn", "i"],
-    category: "basic"
+    category: "Packet 6 (Work, elevator, etc.)"
 },
 {
     markup:"`F_t=dotmv_e`",
     symbols: ["finalt", "finalnaughtrcet", "mdnaughtt", "m", "ve", "v", "e", "escapevelnaughtcity", "finallux", "massfinallux", "thrust", "rnaughtcket", "thrustequatinaughtn", "rnaughtcketequation"],
     category: "rocket equations"
+},
+{
+    markup: "`vec(F) *t = DeltavecP = text(Impulse)`",
+    symbols: ["impulse", "final", "t", "deltap", "p", "lilp", "i"],
+    category: "Packet 6 (Work, elevator, etc.)"
 }
 ];

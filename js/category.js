@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
 function showEquations(key) {
     document.getElementById("equations").innerHTML = "";
     for (equation of categories[key]) {
-        console.log(equation)
         document.getElementById("equations").innerHTML += "<h4>" + equation + "</h4><br>"
     }
 
