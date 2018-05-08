@@ -1,0 +1,12 @@
+body{
+    text-align: center;
+}
+#main{
+    width: 50%;
+    margin-left: 25%;
+
+}
+
+.category:hover{
+    cursor: pointer
+}
