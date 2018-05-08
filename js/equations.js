@@ -145,11 +145,46 @@ let equations = [{
     symbols: ["finals", "k", "x", "hnaughtokes", "hnaughtoke", "hnaughtokeslaw", "hnaughtoke'slaw", "hnaughtok", "hnaughtoks"]
 },
 {
-    markup: "`F = (Delta rho) / t`",
-    symbols: ["lilp", "mnaughtmentum", "p", "deltap", "t", "final", "finalnaughtrce"]
-},
-{
     markup: "`F = ma`",
     symbols: ["final", "m", "a", "finalnaughtrce"]
+},
+{
+    markup: "`f_s = M_sn`",
+    symbols: ["cnaughtefinalfecientoffricton", "finals", "ms", "n", "mu", "mk"]
+},
+{
+    markup: "`m_1v_(o1) + m_2v_(o2) = (m_1+m_2)v_f`",
+    symbols: ["m1", "vnaught1", "m1vnaught1", "cnaughtllision", "chanughtllisions", "inelastic"]
+},
+{
+    markup: "`m_1v_(o1) + m_2v_(o2) = m_1v_(f1) + m_2v_(f2)`",
+    symbols: ["m1", "vfinal1", "m1vfinal1", "cnaughtllision", "chanughtllisions", "elastic"]
+},
+{
+    markup: "`W = normvecf cdot normvec(Deltas)`",
+    symbols: ["w", "final", "deltas", "deltax", "deltay", "wnaughtrk", "finalnaughtrce"]
+},
+{
+    markup: "`sin(a)/a = sin(b)/b = sin(c)/c`",
+    symbols: ["lawnaughtfinalsines", "sines", "pully", "pullyland", "pulley", "pulleyland", "lnaughts", "tensinaughtn", "t"]
+},
+{
+    markup: "`n=m(g+a)`",
+    symbols: ["n", "m", "g", "a", "elevatnaughtr", "elevatnaughtreq", "elevatnaughtrequation", "intertia", "elevater", "elevatereq", "elevaterequatinaughtn"]
+},
+{
+    markup: "`vecF_(a->b) = -vecF_(b->a)`",
+    symbols: ["newtnaughtn", "newtnaughtns", "newtnaughtn's", "newtnaughtnthird", "newtnaughtn'ssecond", "newtnaughtn'ssecondlaw", "secnaughtndlaw", "newtnaughtn'slawsn", "newtnaughtnslaw", "secnaughtndlaw", "2ndlaw", "newtnaughtns2nd", "newtnaughtn2nd", "newtnaughtn's2nd", "newtnaughtns3rd", "newtnaughtnsthird", "newtnaughtn'sthird", "newtnaughtn's3"]
+},
+{
+    markup: "`vec(F)  = vec(Deltap)/t`",
+    symbols: ["final", "finalnaughtrce", "deltap", "t", "impulse", "impulseequatinaughtn", "i"]
+},
+{
+    markup:"`F_t=dotmv_e`",
+    symbols: ["finalt", "finalnaughtrcet", "mdnaughtt", "m", "ve", "v", "e", "escapevelnaughtcity", "finallux", "massfinallux", "thrust", "rnaughtcket", "thrustequatinaughtn", "rnaughtcketequation"]
+},
+{
+
 }
 ];
