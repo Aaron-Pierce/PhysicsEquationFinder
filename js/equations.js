@@ -231,5 +231,20 @@ let equations = [{
     markup: "`vec(F) *t = DeltavecP = text(Impulse)`",
     symbols: ["impulse", "final", "t", "deltap", "p", "lilp", "i"],
     category: "Packet 6 (Work, elevator, etc.)"
+},
+{
+    markup: "`U_g = mgh`",
+    symbols: ["u", "ug", "m", "g", "mg", "h"],
+    category: "Packet 6 (Work, elevator, etc.)"
+},
+{
+    markup: "`SigmaW =Deltak`",
+    symbols: ["sigmaw", "w", "summatinaughtnwork", "w", "wnaughtrk", "deltak", "k"],
+    category: "Packet 6 (Work, elevator, etc.)"
+},
+{
+    markup: "`Deltak = 1/2mv_f^2-1/2mv_o^2`",
+    symbols: ["sigmaw", "w", "summatinaughtnwork", "w", "wnaughtrk", "deltak", "k", "m", "vfinal", "v", "vnaught", "mass"],
+    category: "Packet 6 (Work, elevator, etc.)"
 }
 ];
