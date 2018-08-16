@@ -4,12 +4,12 @@ let symbols = [{
 },
 {
     proc: ["delta"],
-    replace: "Δ",
+    replace: "Delta",
     id: '1'
 },
 {
     proc: [" not", " naught", " nought", "not", "naught", "nought", " initial", "initial"],
-    replace: "₀",
+    replace: "_o",
     id: '2'
 
 },

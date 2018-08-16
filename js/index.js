@@ -2,7 +2,7 @@
 function replaceChars(text) {
   //text is the html object of the input box - not the value of the box.
   let replaced = text.value; //instance the text parameter for easier manipulation
-  for (symbol of symbols) {
+  for (symbol of symbols) { //symbols is global variable from symbols.js
     //iterate through every symbol
     for (proc of symbol.proc) {
       //iterate through each proc of each symbol
@@ -13,7 +13,6 @@ function replaceChars(text) {
     }
   }
   document.getElementById("results").innerHTML = "`" + replaced + "`"; //add the parsed symbol to the dom
-
   MathJax.Hub.Typeset(); //Format math found in dom
 }
 
@@ -47,7 +46,7 @@ let submitSymbols = function() {
   //Step 2: Find equations with passed symbols and score them
 
   let found = []; //array of equtions with a score of at least 1
-  for (equation of equations) {
+  for (equation of equations) { //equations from equations.js
     // iterate through each equation
     let curScore = 0; //score of current equation we are evaluating
     for (let i = 0; i < symbols.length; i++) {
@@ -59,7 +58,7 @@ let submitSymbols = function() {
     }
     let threshold = document.getElementById("strictSwitch").checked
       ? Math.floor(symbols.length / 2)
-      : 0; //if the strictSwitch is checked, an equation will only be matched if it has half of the symbols that are passed. if not checked, it must have at least one symbol
+      : 0; //if the strictSwitch is checked, an equation will only be matched if it has half of the symbols that are passed. if not checked, it must have more than zero symbols
     if (curScore > threshold) {
       //push any equations found with the amount of symbols as let passed through by threshold
       found.push({
@@ -102,14 +101,14 @@ let submitSymbols = function() {
   //Step 5: Add findings to body and format equations
   for (equ of addedToBody) {
     //for every equation in our sorted array
-
-    if (!document.getElementById("colorSwitch").checked) {
-      equ.eq.color = "";
+    let potentialColor = equ.eq.color;
+    if (!document.getElementById("colorSwitch").checked) { //if color switch is unchecked, remove any color
+      potentialColor = "";
     }
 
     document.body.getElementsByClassName("equationsWrapper")[0].innerHTML +=
       "<h3 style=color:" +
-      equ.eq.color +
+      potentialColor +
       ">``" +
       equ.eq.markup +
       "``</h3>"; //add it to the dom. surrounded by "``" so MathJax will parse it as MathML. The style is the color object for background highlighting. worst case we set the background-color to undefined which doesnt really matter

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">    
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <input id="input">
+    <h1 id="result"></h1>
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    <script>
+        let input = document.getElementById("input")
+
+        class MarkupSymbol {
+            constructor(markdown) {
+                this.markdown = markdown;
+            }
+        }
+
+        //all of the known physics symbols
+        let markupSymbols = [new MarkupSymbol("barv"), new MarkupSymbol("a"), new MarkupSymbol("v"), new MarkupSymbol(
+                "v_o"), new MarkupSymbol("v_(o x)"), new MarkupSymbol("v_(o y)"), new MarkupSymbol("t"), new MarkupSymbol(
+                "deltax"), new MarkupSymbol("v_f"), new MarkupSymbol("f_g"), new MarkupSymbol("g"), new MarkupSymbol(
+                "m_1"), new MarkupSymbol("m_2"), new MarkupSymbol("r"), new MarkupSymbol("w"), new MarkupSymbol("m"),
+            new MarkupSymbol("p"), new MarkupSymbol("f_s"), new MarkupSymbol("m_s"), new MarkupSymbol("n"), new MarkupSymbol(
+                "v_(f y)"), new MarkupSymbol("deltay"), new MarkupSymbol("omega"), new MarkupSymbol("deltas"), new MarkupSymbol(
+                "deltatheta"), new MarkupSymbol("theta"), new MarkupSymbol("v_l"), new MarkupSymbol("tau"), new MarkupSymbol(
+                "v_(apex)"), new MarkupSymbol("f_t"), new MarkupSymbol("dotm"), new MarkupSymbol("v_e"), new MarkupSymbol(
+                "x"), new MarkupSymbol("y"), new MarkupSymbol("k"), new MarkupSymbol("f"), new MarkupSymbol("j"), new MarkupSymbol("a_o"), new MarkupSymbol("x_o")
+        ]
+
+        //bubble sort the markup symbols by length, so that when we loop through a string to find symbols, it looks for the biggest first, so deltax will return deltax not a, t, and delx
+        for (let i = 0; i < markupSymbols.length; i++) {
+            for (let j = i + 1; j < markupSymbols.length; j++) {
+                // console.log(`i: ${i}; j: ${j}; length: ${markupSymbols.length}`)
+                if (markupSymbols[i].markdown.length < markupSymbols[j].markdown.length) {
+                    let temp = markupSymbols[j];
+                    markupSymbols[j] = markupSymbols[i];
+                    markupSymbols[i] = temp;
+                }
+            }
+        }
+
+
+        //every single time a new character is entered update the equation
+        input.addEventListener("keyup", e => {
+
+            /*
+             *
+             * These three lines just turn the input into asciimath displayed on the dom
+             * 
+             */
+
+            let resultString = input.value;
+            document.getElementById("result").innerHTML = "`" + input.value + "`"
+            MathJax.Hub.Typeset();
+
+            let symbols = resultString.split(" "); //in case the user is smart and properly spaced their terms, break on those to make our lives easier 
+
+            let letters = new RegExp("[a-zA-Z]"); //Regex match for only letters
+            for (symbol of symbols) {
+                if (letters.test(symbol) === false) { //if there are no letters in a symbol, then it is probably something like "+", or "=", so remove it
+                    symbols.splice(symbols.indexOf(symbol), 1) //remove letterless symbol from array 
+                }
+            }
+
+            let nonSymbolCharacters = ["+", "-", "=", "/"]; // arithmetic operations are very good indicators that there are symbols on either side of the operation, so split the string there
+            let symbolsToRemove = ["(", ")", "sqrt", "^"]; //These symbols are solely for proper markup display, not equations themselves, so we remove them, as they won't be good indicators of where to break the array to find symbols
+
+            let correctedSymbols = []; //populate this array with strings that have been split based on arithmetic operations or symbols stripped of parenthesis. This will be an array of strings that will likely contain at least one symbol. example "deltax", "at", "v_o"
+
+            for (symbol of symbols) { //iterate through each symbol
+                for (char of symbol.split("")) { // and characters within the symbol
+                    if (nonSymbolCharacters.indexOf(char) !== -1) { //if the character within the symbol is an arethmetic operation or something like that, remove it.
+                        let correctedSymbol = symbol.replace(char, " "); //remove symbol
+                        symbol = correctedSymbol; //strings are immutable, so reset the value of the symbol to the corrected version
+                    }
+                }
+                for (whitespacedSymbol of symbol.split(" ")) { //after removing the arithmetic operations, try to parse through any extra junk in the symbol
+                    if (whitespacedSymbol !== "") { //this if is here solely because parenthesis become extra whitespace around a symbol and therefore creates two blank symbols, so this is here to stop them from being added
+                        for (symbolToRemove of symbolsToRemove) {
+                            while (whitespacedSymbol.indexOf(symbolToRemove) !== -1) {
+                                // console.log("in " + whitespacedSymbol + " trying to remove " + symbolToRemove)
+                                whitespacedSymbol = whitespacedSymbol.replace(symbolToRemove, "")
+                            }
+                        }
+
+                        // console.log('Final symbol, whitespaced and removed: ' + whitespacedSymbol)
+                        correctedSymbols.push(whitespacedSymbol)
+                    }
+                }
+            }
+
+            console.log("Corrected Symbols")
+            console.log(correctedSymbols)
+
+
+            let finalSymbols = [];
+
+            for (correctSymbol of correctedSymbols) {
+                for (markupSymbol of markupSymbols) {
+                    if (correctSymbol.toLowerCase().indexOf(markupSymbol.markdown.toLowerCase()) !== -1) { //If known symbol is found in parsed out symbol. This could select a string such as "deltax", which is already a symbol, so we need to account for that later
+                        if (correctSymbol.length !== markupSymbol.markdown.length) { //this block checks that there are actually two found symbols inside of a string, instead of a single symbol, the entire string
+                            finalSymbols.push(markupSymbol.markdown);
+                            correctedSymbols.push(correctSymbol.toLowerCase().replace(markupSymbol.markdown
+                                .toLowerCase(), ""))
+                        } else { //we have found a symbol that is the entire string, as in "deltax"
+                            finalSymbols.push(markupSymbol.markdown)
+                        }
+                        break; //we've found a symbol here, so stop looping through it, otherwise deltax will parse out deltax, t, and a which is a problem
+                    }
+                }
+            }
+
+
+
+
+            //for some reason that I don't fully understand the algorithim matches multiple times, as in barv can show up 3 times, and instead of implementing a set, we just parse out the repeats
+
+            let foundFinalSymbols = []
+
+            for (symbol of finalSymbols) {
+                if (foundFinalSymbols.indexOf(symbol) === -1) {
+                    foundFinalSymbols.push(symbol);
+                }
+            };
+
+            finalSymbols = foundFinalSymbols; //remove duplicates from final symbols
+
+
+            console.log("final Symbols")
+            console.log(finalSymbols)
+
+        })
+    </script>
+</body>
+
+</html>

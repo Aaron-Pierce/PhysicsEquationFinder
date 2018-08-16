@@ -1,0 +1,9 @@
+#tab1, #tab2{
+    width: 50%;
+    margin-left: 25%;
+    text-align: center;
+}
+
+#markupResult{
+    font-size: 2em;
+}

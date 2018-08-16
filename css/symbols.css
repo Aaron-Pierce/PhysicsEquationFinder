@@ -1,0 +1,10 @@
+body{
+    text-align: center;
+}
+
+.modal{
+    text-align: left;
+}
+.cardwrapper{
+    display: inline-block
+}
