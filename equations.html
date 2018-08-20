@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css'/>>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Equations Editor</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.css' />
+    <link rel="stylesheet" href="./css/equations.css">
+</head>
+
+<body class="grey lighten-3">
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <h3>Equations Editor</h3>
+    <a href="./symbols.html">Symbol Editor</a>
+    <br>
+    <hr>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Add Equations</h4>
+            <div class="input-field">
+                <input id="equation_markdown" type="text" class="validate">
+                <label for="equation_markdown" id="equation_markdown_label">Equation Markup</label>
+            </div>
+            <h3 id="result"></h3>
+            <div id="equationSymbolsWrapper">
+
+            </div>
+
+
+            <div class="chips chips-autocomplete"></div>
+            <i>(Known symbols will autocomplete. To add a non official symbol, like 3rdblue, type and then press enter)</i><br>
+            <i>Use unknown symbols as more search results for an equation, like 3rd orange</i>
+
+            <div class="input-field">
+                <input type="text" id="categoryAutocomplete" class="autocomplete">
+                <label for="categoryAutocomplete" id="equation_category_label">Category</label>
+              </div>
+
+              <i>(If the category doesn't autocomplete, it is a new category and will be added to the list)</i>
+
+
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="submitNewEquation()">Submit</a>
+        </div>
+    </div>
+
+    <div id="equationCardsWrapper">
+
+    </div>
+
+
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large teal lighten-1" onclick="openAddModal()">
+            <i class="large material-icons">add</i>
+        </a>
+    </div>
+
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCGPgrFmgI9b6OUE8XlSSnRlnjQgc_av2g",
+            authDomain: "equationfinder-66ea4.firebaseapp.com",
+            databaseURL: "https://equationfinder-66ea4.firebaseio.com",
+            projectId: "equationfinder-66ea4",
+            storageBucket: "",
+            messagingSenderId: "995381751124"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="./js/symboldb.js"></script>
+    <script src="./js/categories.js"></script>
+    <script src="./js/equationPage.js"></script>
+</body>
+
+</html>

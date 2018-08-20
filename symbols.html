@@ -9,12 +9,28 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Symbols</title>
+    <title>Symbols Editor</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.css' />
     <link rel="stylesheet" href="./css/symbols.css">
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCGPgrFmgI9b6OUE8XlSSnRlnjQgc_av2g",
+            authDomain: "equationfinder-66ea4.firebaseapp.com",
+            databaseURL: "https://equationfinder-66ea4.firebaseio.com",
+            projectId: "equationfinder-66ea4",
+            storageBucket: "",
+            messagingSenderId: "995381751124"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.3.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.3.0/firebaseui.css" />
+
 </head>
 
 <body class="grey lighten-3">
@@ -22,6 +38,7 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <h3>Symbol Editor</h3>
+    <a href="./equations.html">Equations Editor</a>
     <br>
     <hr>
     <!-- Modal Structure -->
@@ -66,21 +83,10 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyCGPgrFmgI9b6OUE8XlSSnRlnjQgc_av2g",
-            authDomain: "equationfinder-66ea4.firebaseapp.com",
-            databaseURL: "https://equationfinder-66ea4.firebaseio.com",
-            projectId: "equationfinder-66ea4",
-            storageBucket: "",
-            messagingSenderId: "995381751124"
-        };
-        firebase.initializeApp(config);
-    </script>
+
     <script src="./js/symbolPage.js"></script>
 </body>
 
