@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Equation Editor</title>
+        <meta name="description" con¬tent="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css'/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large teal lighten-1" onclick="openAddModal()">
+                <i class="large material-icons">add</i>
+            </a>
+        </div>
+
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Add Symbol</h4>
+                <div class="input-field">
+                    <input placeholder="E.g V naught" id="symbol_name" type="text" class="validate">
+                    <label for="symbol_name" id="symbol_name_label">Symbol Name</label>
+                </div>
+                <div class="input-field">
+                    <input id="symbol_markdown" type="text" class="validate" onkeyup="renderAddSymbolMarkup()">
+                    <label for="symbol_markdown" id="symbol_markdown_label">Symbol Markup</label>
+                    <p>(In <a href="http://asciimath.org/" target="_blank">AsciiMath</a>)</p>
+                    <h4 id="addSymbolMarkupResults"></h4>
+                </div>
+                <div class="input-field">
+                    <input id="symbol_aliases" type="text" class="validate">
+                    <p> (Things that can be searched to bring up the symbol. Separate them with commas)</p>
+                    <label for="symbol_aliases" id="symbol_aliases_label">Aliases</label>
+                </div>
+    
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="submitNewSymbol()">Submit</a>
+            </div>
+        </div>
+
+        
+
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
+        <script src="./js/equationsPage.js"></script>
+    </body>
+</html>
