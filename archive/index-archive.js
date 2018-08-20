@@ -1,8 +1,19 @@
-function correctSymbol(string){
-  while(string.indexOf(" ") !== -1){
-    string = string.replace(" ", "")
+//Parse text put into input box as MathML for display
+function replaceChars(text) {
+  //text is the html object of the input box - not the value of the box.
+  let replaced = text.value; //instance the text parameter for easier manipulation
+  for (symbol of symbols) { //symbols is global variable from symbols.js
+    //iterate through every symbol
+    for (proc of symbol.proc) {
+      //iterate through each proc of each symbol
+      let searchMask = proc;
+      let regEx = new RegExp(searchMask, "ig");
+      let replaceMask = symbol.replace;
+      replaced = replaced.replace(regEx, replaceMask); //Regex matches all procs case-insensitive, then replaces any procs with the replacement
+    }
   }
-  return string.toLowerCase();
+  document.getElementById("results").innerHTML = "`" + replaced + "`"; //add the parsed symbol to the dom
+  MathJax.Hub.Typeset(); //Format math found in dom
 }
 
 let submitSymbols = function() {
@@ -13,6 +24,20 @@ let submitSymbols = function() {
     .getElementById("inputBox")
     .value.replace(/\s/g, "")
     .split(","); //remove all whitespace from the symbols, and parse them into an array of symbols
+  for (i in symbols) {
+    //iterate through passed symbols
+    for (altSymbol of symbolAlts) {
+      //iterate through each symbol alt
+      if (
+        symbols[i].toLowerCase().indexOf(altSymbol.proc.toLowerCase()) !== -1 //if a symbol alt is found in the string, ignoring case
+      ) {
+        symbols[i] = symbols[i]
+          .toLowerCase()
+          .replace(altSymbol.proc, altSymbol.replace); //put the symbol in lowercase, and replace it with any found alt symbols. E.g Vf to vfinal
+      }
+    }
+  }
+
   console.log(symbols)
 
 
@@ -21,19 +46,16 @@ let submitSymbols = function() {
   //Step 2: Find equations with passed symbols and score them
 
   let found = []; //array of equtions with a score of at least 1
-  for (equation of equationsdb) { //equations from equations.js
+  for (equation of equations) { //equations from equations.js
     // iterate through each equation
-    console.log(equation.procs)
     let curScore = 0; //score of current equation we are evaluating
     for (let i = 0; i < symbols.length; i++) {
       //iterate through each symbol given
-      if (equation.procs.indexOf(symbols[i].toLowerCase()) !== -1) {
+      if (equation.symbols.indexOf(symbols[i].toLowerCase()) !== -1) {
         //if the symbol is found within the array of equation's symbols
         curScore++; //increment score
       }
     }
-
-    console.log(curScore)
     let threshold = document.getElementById("strictSwitch").checked
       ? Math.floor(symbols.length / 2)
       : 0; //if the strictSwitch is checked, an equation will only be matched if it has half of the symbols that are passed. if not checked, it must have more than zero symbols
@@ -56,8 +78,6 @@ let submitSymbols = function() {
     }
   }
 
-  console.log(addedToBody)
-
 
   //Step 3: Sort array for correct ordering
   //TODO: optimize sort algorthim
@@ -78,11 +98,8 @@ let submitSymbols = function() {
 
   // let color = true;
 
-  console.log(addedToBody)
-
   //Step 5: Add findings to body and format equations
   for (equ of addedToBody) {
-    console.log(equ)
     //for every equation in our sorted array
     let potentialColor = equ.eq.color;
     if (!document.getElementById("colorSwitch").checked) { //if color switch is unchecked, remove any color
@@ -92,9 +109,9 @@ let submitSymbols = function() {
     document.body.getElementsByClassName("equationsWrapper")[0].innerHTML +=
       "<h3 style=color:" +
       potentialColor +
-      ">`" +
-      equ.eq.markdown +
-      "`</h3>"; //add it to the dom. surrounded by "``" so MathJax will parse it as MathML. The style is the color object for background highlighting. worst case we set the background-color to undefined which doesnt really matter
+      ">``" +
+      equ.eq.markup +
+      "``</h3>"; //add it to the dom. surrounded by "``" so MathJax will parse it as MathML. The style is the color object for background highlighting. worst case we set the background-color to undefined which doesnt really matter
   }
 
   MathJax.Hub.Typeset(); //parse all equations in the dom
@@ -106,6 +123,8 @@ window.addEventListener("DOMContentLoaded", function() {
   document.getElementById("inputBox").addEventListener("keyup", function(e) {
     if (e.keyCode === 13) {
       submitSymbols();
+    } else {
+      replaceChars(document.getElementById("inputBox"));
     }
   });
 });

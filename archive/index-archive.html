@@ -20,27 +20,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
     <link rel="stylesheet" href="./css/index.css">
-
-    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyCGPgrFmgI9b6OUE8XlSSnRlnjQgc_av2g",
-            authDomain: "equationfinder-66ea4.firebaseapp.com",
-            databaseURL: "https://equationfinder-66ea4.firebaseio.com",
-            projectId: "equationfinder-66ea4",
-            storageBucket: "",
-            messagingSenderId: "995381751124"
-        };
-        firebase.initializeApp(config);
-    </script>
-
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
-
-
-    <script src="./js/symboldb.js"></script>
-    <script src="./js/equationsdb.js"></script>
+    <script src="./js/symbols.js"></script>
+    <script src="./js/equations.js"></script>
     <script src="./js/index.js"></script>
 
 </head>
@@ -49,17 +30,6 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-        <nav>
-            <div class="nav-wrapper teal">
-              <a href="#" class="brand-logo center">PhysicsEquationFinder</a>
-              <ul id="nav-mobile" class="right">
-                <li><a href="./auth.html">Admin</a></li>
-              </ul>
-            </div>
-          </nav>
-
-
     <h3>Enter the symbols(no numbers) you want an equation for, separated by commas</h3>
     <form style="width: 50%" onsubmit="event.preventDefault();">
         <input placeholder="Symbols" id="inputBox" type="text" class="validate" style="width: 50%">

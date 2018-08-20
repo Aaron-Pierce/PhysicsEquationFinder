@@ -19,7 +19,7 @@ symbolRef.onSnapshot(function (docs) {
               </div>
               <div class="card-action">
                 <a href="#" onclick="editSymbol('${doc.id}')" class=" teal-text lighten-4">Edit Symbol</a>
-                <a href="#" class=" teal-text lighten-4">Delete</a>
+                <a href="#" class="teal-text lighten-4" onclick="deleteSymbol('${doc.id}')">Delete</a>
               </div>
             </div>
           </div>
@@ -101,3 +101,10 @@ function submitNewSymbol() {
   
 
 }
+
+function deleteSymbol(id){
+  if(confirm("Are you sure you want to delete this symbol?")){
+    symbolRef.doc(id).delete();
+  }
+}
+

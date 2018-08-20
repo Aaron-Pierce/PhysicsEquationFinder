@@ -16,7 +16,21 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/css/materialize.min.css' />
     <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/js/materialize.min.js'></script>
     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=AM_CHTML"></script>
-    <script src="./js/equations.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCGPgrFmgI9b6OUE8XlSSnRlnjQgc_av2g",
+            authDomain: "equationfinder-66ea4.firebaseapp.com",
+            databaseURL: "https://equationfinder-66ea4.firebaseio.com",
+            projectId: "equationfinder-66ea4",
+            storageBucket: "",
+            messagingSenderId: "995381751124"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="./js/symboldb.js"></script>
+    <script src="./js/equationsdb.js"></script>
     <script src="./js/category.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
