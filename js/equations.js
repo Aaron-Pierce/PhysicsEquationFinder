@@ -246,5 +246,10 @@ let equations = [{
     markup: "`Deltak = 1/2mv_f^2-1/2mv_o^2`",
     symbols: ["sigmaw", "w", "summatinaughtnwork", "w", "wnaughtrk", "deltak", "k", "m", "vfinal", "v", "vnaught", "mass"],
     category: "Packet 6 (Work, elevator, etc.)"
+},
+{
+    markup: "`vec(tau) = vec(r) timesvec(f)`",
+    symbols: ["tau", "finalnaughtrce", "final", "tnaughtrque", "r", "radius"],
+    category : "Packet 6 (Work, elevator, etc.)"
 }
 ];
